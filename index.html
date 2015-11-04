@@ -1,12 +1,39 @@
 <html>
 <head>
-	<title>Opti test</title>
-	<script src="//cdn.optimizely.com/js/2411940477.js"></script>
+	<title>Google analytics test</title>
 
+  <script type="text/javascript">
+
+    function gaevent(category, action, label)
+    {
+      console.log(  "category: " + category + "\n" + 
+                    "action: " + action + "\n" + 
+                    "label: " + label
+                  );
+    }
+
+  </script>
 </head>
 <body>
-	<h1>Opti test</h1>
-	<p>let's try to test something</p>
-	<button>do it</button>
+	
+	<ul>
+  <li><button onclick='gaevent("Opower Compare My Bill","Click, Compare Selector", "More")'>Opower Compare My Bill - Compare Selector </button></li>
+  <li><button onclick='gaevent("Opower Compare My Bill","Click, Previous Bill Insight", "Less")'>Opower Compare My Bill - Previous Bill Insight</button></li>
+  <li><button onclick='gaevent("Opower Compare My Bill","Click, Last Year Bill Insight", "More")'>Opower Compare My Bill - Last year Bill Insight </button></li>
+  <li><button onclick='gaevent("Opower Compare My Bill","Click, See More Details Button")'>Opower Compare My Bill - See More Details button</button></li>
+  </ul>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-69730404-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
 </body>
 </html>
