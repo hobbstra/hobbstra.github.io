@@ -13,7 +13,8 @@
 
       var value, opt_noninteraction;
 
-      _trackEvent(category, action, label, value, opt_noninteraction)
+      _gaq.push(['_trackEvent', category, action, label])
+
     }
 
   </script>
