@@ -4,7 +4,7 @@
 
   <script type="text/javascript">
 
-    function gaevent(category, action, label)
+    function gaEvent(category, action, label)
     {
       console.log(  "category: " + category + "\n" + 
                     "action: " + action + "\n" + 
@@ -16,6 +16,15 @@
       //_gaq.push(['_trackEvent', category, action, label])
       ga('send', 'event', category, action, label);
 
+    }
+
+    function gaCustVar(index, name, value, opt_scope){
+      _gaq.push(['_setCustomVar',
+        index,                   // This custom var is set to slot #1.  Required parameter.
+        name,     // The name acts as a kind of category for the user activity.  Required parameter.
+        value,               // This value of the custom variable.  Required parameter.
+        opt_scope                    // Sets the scope to session-level.  Optional parameter.
+      ]);
     }
 
   </script>
@@ -31,12 +40,50 @@
 </script>
 </head>
 <body>
-	
+	<h1>More energy</h1>
 	<ul>
-  <li><button onclick='gaevent("Opower Compare My Bill","Click, Compare Selector", "More")'>Opower Compare My Bill - Compare Selector </button></li>
-  <li><button onclick='gaevent("Opower Compare My Bill","Click, Previous Bill Insight", "Less")'>Opower Compare My Bill - Previous Bill Insight</button></li>
-  <li><button onclick='gaevent("Opower Compare My Bill","Click, Last Year Bill Insight", "More")'>Opower Compare My Bill - Last year Bill Insight </button></li>
-  <li><button onclick='gaevent("Opower Compare My Bill","Click, See More Details Button")'>Opower Compare My Bill - See More Details button</button></li>
+  <li><button onclick='gaEvent("Opower Compare My Bill","click", "Previous Bill")'>Opower Compare My Bill - Compare Selector </button></li>
+  <li><button onclick='gaEvent("Opower Compare My Bill","Click, "Previous Bill Insight", "Less than Previous Bill")'>Opower Compare My Bill - Previous Bill Insight</button></li>
+  <li><button onclick='gaEvent("Opower Compare My Bill","Click, Last Year Bill Insight", "More than Last Years Bill")'>Opower Compare My Bill - Last year Bill Insight </button></li>
+  <li><button onclick='gaEvent("Opower Compare My Bill","Click, See More Details Button")'>Opower Compare My Bill - See More Details button</button></li>
+  </ul>
+  
+  <h1>Less Energy</h1>
+    <ul>
+  <li><button onclick='gaEvent("Opower Compare My Bill","Click, Compare Selector", "Less")'>Opower Compare My Bill - Compare Selector </button></li>
+  <li><button onclick='gaEvent("Opower Compare My Bill","Click, Previous Bill Insight", "Less")'>Opower Compare My Bill - Previous Bill Insight</button></li>
+  <li><button onclick='gaEvent("Opower Compare My Bill","Click, Last Year Bill Insight", "Less")'>Opower Compare My Bill - Last year Bill Insight </button></li>
+  <li><button onclick='gaEvent("Opower Compare My Bill","Click, See More Details Button")'>Opower Compare My Bill - See More Details button</button></li>
+  </ul>
+
+  <h1>About the same energy</h1>
+    <ul>
+  <li><button onclick='gaEvent("Opower Compare My Bill","Click, Compare Selector", "About the Same")'>Opower Compare My Bill - Compare Selector </button></li>
+  <li><button onclick='gaEvent("Opower Compare My Bill","Click, Previous Bill Insight", "Less")'>Opower Compare My Bill - Previous Bill Insight</button></li>
+  <li><button onclick='gaEvent("Opower Compare My Bill","Click, Last Year Bill Insight", "Less")'>Opower Compare My Bill - Last year Bill Insight </button></li>
+  <li><button onclick='gaEvent("Opower Compare My Bill","Click, See More Details Button")'>Opower Compare My Bill - See More Details button</button></li>
+  </ul>
+
+  <ul>Custom Variables
+    <li><button onclick='gaCustVar(1,"Tenure","1st login",  "session")'>1st login</button></li>
+    <li><button onclick='gaCustVar(1,"Tenure","0-1 month",  "session")'>0-1 months</button></li>
+    <li><button onclick='gaCustVar(1,"Tenure","1-3 months", "session")'>1-3 months</button></li>
+    <li><button onclick='gaCustVar(1,"Tenure","3-6 months", "session")'>3-6 months</button></li>
+    <li><button onclick='gaCustVar(1,"Tenure","6-12 months", "session")'>6-12 months</button></li>
+    <li><button onclick='gaCustVar(1,"Tenure","1 year", "session")'>1 year</button></li>
+    <li><button onclick='gaCustVar(1,"Tenure","2 years", "session")'>2 years</button></li>
+    <li><button onclick='gaCustVar(1,"Tenure","+3 years", "session")'>+3 years</button></li>
+
+
+    <li><button onclick='gaCustVar(2,"Budget billing","true", "session")'>Budget Billing off</button></li>    
+    <li><button onclick='gaCustVar(2,"Budget billing","false", "session")'>Budget Billing on</button></li>
+
+    <li><button onclick='gaCustVar(3,"Paperless billing","true", "session")'>Paperless billing off</button></li>    
+    <li><button onclick='gaCustVar(3,"Paperless billing","false", "session")'>Paperless billing on</button></li>
+
+    <li><button onclick='gaCustVar(4,"Customer Type","true", "session")'>Residential</button></li>    
+    <li><button onclick='gaCustVar(4,"Customer Type","false", "session")'>SMB</button></li>
+    
   </ul>
 
 </body>
