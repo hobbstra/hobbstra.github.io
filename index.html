@@ -9,7 +9,11 @@
     function gaCustVar(index, dimensionValue){
     ga('set', 'dimension' + index, dimensionValue);
     console.log('set:dimension:' + 'dimension' + index + ',dimensionValue:' + dimensionValue)
-    ga('send', 'pageview');
+    
+    }
+
+    function gaSubmit(){
+      ga('send', 'pageview');
     }
     </script>
     <script>
@@ -18,7 +22,7 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-69730404-1', 'auto');
-    ga('send', 'pageview');
+    
     </script>
   </head>
   <body>
@@ -60,5 +64,8 @@
       <li><button onclick='gaCustVar(4,"Residential")'>Residential</button></li>
       <li><button onclick='gaCustVar(4,"SMB")'>SMB</button></li>
     </ul>
+
+    <h1>Submit custom dimensions</h1>
+    <button onclick='gaSubmit()'>Submit</button>
   </body>
 </html>
