@@ -9,6 +9,7 @@
     function gaCustVar(index, dimensionValue){
     ga('set', 'dimension' + index, dimensionValue);
     console.log('set:dimension:' + 'dimension' + index + ',dimensionValue:' + dimensionValue)
+    ga('send', 'pageview');
     }
     </script>
     <script>
@@ -52,10 +53,10 @@
       <li><button onclick='gaCustVar(1,"1 year")'>1 year</button></li>
       <li><button onclick='gaCustVar(1,"2 years")'>2 years</button></li>
       <li><button onclick='gaCustVar(1,"+3 years")'>+3 years</button></li>
-      <li><button onclick='gaCustVar(2,"true")'>Budget Billing off</button></li>
-      <li><button onclick='gaCustVar(2,"false")'>Budget Billing on</button></li>      
-      <li><button onclick='gaCustVar(3,"true")'>Paperless billing off</button></li>
-      <li><button onclick='gaCustVar(3,"false")'>Paperless billing on</button></li>
+      <li><button onclick='gaCustVar(2,"false")'>Budget Billing off</button></li>
+      <li><button onclick='gaCustVar(2,"true")'>Budget Billing on</button></li>      
+      <li><button onclick='gaCustVar(3,"false")'>Paperless billing off</button></li>
+      <li><button onclick='gaCustVar(3,"true")'>Paperless billing on</button></li>
       <li><button onclick='gaCustVar(4,"Residential")'>Residential</button></li>
       <li><button onclick='gaCustVar(4,"SMB")'>SMB</button></li>
     </ul>
